@@ -4,15 +4,19 @@ namespace app\controllers;
 
 use app\core\BaseController;
 use app\models\UserModel;
+use app\core\DbConnection;
+use app\models\ProductModel;
 
 class UserController extends BaseController
 {
     public function readUser()
     {
         $model = new UserModel();
-        $model->email = 'luka.tasic.22@singimail.rs';
-        $model->firstName = 'Luka';
-        $model->lastName = 'Tasic';
+        $result = $model->get();
+        $model->mapData($result);
+        echo "<pre>";
+        var_dump($model);
+        exit;
 
         $this->view->render('getUser', 'main', $model);
     }
