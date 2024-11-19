@@ -9,6 +9,7 @@ class ProductModel extends BaseModel
 {
     public int $id;
     public string $name = '';
+
     public string $description = '';
     public int $price;
 
